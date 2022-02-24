@@ -44,7 +44,7 @@ namespace pet_hotel.Controllers
             _context.SaveChanges();
         }
 
-        [HttpPut("{id}/checkin")]
+        /* [HttpPut("{id}")]
         public Pet Put(int id, Pet pet) {
             // DB will be sad if pet doesn't have an id
             pet.id = id;
@@ -56,6 +56,28 @@ namespace pet_hotel.Controllers
             _context.SaveChanges();
 
             return pet;
+        } */
+
+        [HttpPut("{id}/checkin")]
+        public IActionResult CheckIn(int id)
+        {
+            Pet petToUpdate = _context.Pets.Find(id);
+            petToUpdate.checkInPet();
+            _context.Pets.Update(petToUpdate);
+            _context.SaveChanges();
+
+            return Ok(petToUpdate);
+        }
+
+        [HttpPut("{id}/checkout")]
+        public IActionResult CheckOut(int id)
+        {
+            Pet petToUpdate = _context.Pets.Find(id);
+            petToUpdate.checkOutPet();
+            _context.Pets.Update(petToUpdate);
+            _context.SaveChanges();
+
+            return Ok(petToUpdate);
         }
 
         // [HttpGet]
