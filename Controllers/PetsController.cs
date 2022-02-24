@@ -44,6 +44,20 @@ namespace pet_hotel.Controllers
             _context.SaveChanges();
         }
 
+        [HttpPut("{id}/checkin")]
+        public Pet Put(int id, Pet pet) {
+            // DB will be sad if pet doesn't have an id
+            pet.id = id;
+
+            // tell the DB about updated pet object
+            _context.Update(pet.checkedInAt);
+
+            // and save the read object to the database (UPDATE)
+            _context.SaveChanges();
+
+            return pet;
+        }
+
         // [HttpGet]
         // [Route("test")]
         // public IEnumerable<Pet> GetPets() {
