@@ -27,6 +27,15 @@ namespace pet_hotel.Controllers
                 .Include(pet => pet.petOwner);
         }
 
+        // POST
+        [HttpPost]
+        public ActionResult<Pet> Post(Pet pet) {
+            _context.Add(pet);
+            _context.SaveChanges();
+
+            return pet;
+        }
+
         // [HttpGet]
         // [Route("test")]
         // public IEnumerable<Pet> GetPets() {
