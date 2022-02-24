@@ -11,7 +11,7 @@ namespace pet_hotel
         
         [Required]
         public string name { get; set;} 
-        public string email { get; set; }
+        public string emailAddress { get; set; }
 
     }
 }
