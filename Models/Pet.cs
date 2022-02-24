@@ -25,6 +25,16 @@ namespace pet_hotel
         [ForeignKey("id")]
         public int petOwnerId {get; set;}
         public PetOwner petOwner {get; set;}
+
+        public void checkInPet() 
+        {
+            this.checkedInAt = DateTime.Now;
+        }
+
+        public void checkOutPet()
+        {
+            this.checkedInAt = null;
+        }
     }
 
 }
