@@ -19,11 +19,12 @@ namespace pet_hotel.Controllers
             _context = context;
         }
 
-        // This is just a stub for GET / to prevent any weird frontend errors that 
-        // occur when the route is missing in this controller
+        // GET
         [HttpGet]
         public IEnumerable<Pet> GetPets() {
-            return new List<Pet>();
+            return _context.Pets
+                // this is like a JOIN
+                .Include(pet => pet.petOwner);
         }
 
         // [HttpGet]
