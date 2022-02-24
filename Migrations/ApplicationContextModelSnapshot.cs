@@ -53,6 +53,7 @@ namespace dotnet_bakery.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("emailAddress")
+
                         .HasColumnType("text");
 
                     b.Property<string>("name")
